@@ -1,0 +1,49 @@
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+
+    <ng-container matColumnDef="agentName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Agent name and user code</th>
+        <td mat-cell *matHeaderCellDef="let element">
+            {{element.agentName}}
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="Status">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+        <td mat-cell *matHeaderCellDef="let element">
+            {{element.Status}}
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="NoOfParcel">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>No.Of Parcel</th>
+        <td mat-cell *matHeaderCellDef="let element">
+            {{element.NoOfParcel}}
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="VolWeight">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Vol. Weight</th>
+        <td mat-cell *matHeaderCellDef="let element">
+            {{element.VolWeight}}
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="ActualWeight">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Actual Weight (gross weight)</th>
+        <td mat-cell *matHeaderCellDef="let element">
+            {{element.ActualWeight}}
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="BagCapacity">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Bag Capacity Left</th>
+        <td mat-cell *matHeaderCellDef="let element">
+            {{element.BagCapacity}}
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="pickup">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header># of pickups completed</th>
+        <td mat-cell *matHeaderCellDef="let element">
+            {{element.pickup}}
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

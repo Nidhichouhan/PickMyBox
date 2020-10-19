@@ -1,0 +1,81 @@
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+
+    <ng-container matColumnDef="PickupRequestId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>PickUp Request ID</th>
+        <td mat-cell *matHeaderCellDef="let element">
+            {{element.PickupRequestId}}
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="Docket">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Docket</th>
+        <td mat-cell *matHeaderCellDef="let element">
+            {{element.Docket}}
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="IEC">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>IEC</th>
+        <td mat-cell *matHeaderCellDef="let element">
+            {{element.IEC}}
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="NOE">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>NOE</th>
+        <td mat-cell *matHeaderCellDef="let element">
+            {{element.NOE}}
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="FPO">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>FPO</th>
+        <td mat-cell *matHeaderCellDef="let element">
+            {{element.FPO}}
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="Address">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Address</th>
+        <td mat-cell *matHeaderCellDef="let element">
+            {{element.Address}}
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="NoOfParcel">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>No. Of Parcel</th>
+        <td mat-cell *matHeaderCellDef="let element">
+            {{element.NoOfParcel}}
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="TypeOfParcel">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Type of Parcel</th>
+        <td mat-cell *matHeaderCellDef="let element">
+            {{element.TypeOfParcel}}
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>PickUp Date</th>
+        <td mat-cell *matHeaderCellDef="let element">
+            <mat-label>Choose a date</mat-label>
+            <input matInput[matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="agent">
+        <th mat-cell mat-header-cell *matHeaderCellDef mat-sort-header>Assign Agent (name and code):</th>
+        <td>
+            <select>
+                <option *ngFor="let agent of agents" value={{agent.id}}>
+                    {{agent.name}}
+                </option>
+            </select>
+        </td>
+
+    </ng-container>
+    <ng-container matColumnDef="Status">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+        <td mat-cell *matHeaderCellDef="let element">
+            {{element.Status}}
+        </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
